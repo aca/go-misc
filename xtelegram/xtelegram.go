@@ -35,10 +35,11 @@ func init() {
 	}
 }
 
-func Send(v interface{}) {
+func Send(v interface{}) error {
 	u := tb.User{
 		ID: TELEGRAM_CHATID,
 	}
 
-	Bot.Send(&u, fmt.Sprintf("%v", v))
+  _, err := Bot.Send(&u, fmt.Sprintf("%v", v))
+  return err
 }
